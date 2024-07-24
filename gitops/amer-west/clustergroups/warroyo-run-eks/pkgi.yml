@@ -44,13 +44,13 @@ apiVersion: v1
 stringData:
   values.yml: |
     clusterIngressCa:
-    acme:
-      email: your-email
-      server: "https://acme-v02.api.letsencrypt.org/directory"
-      solver:
-        route53:
-          hostedZoneID: "zone-id"
-          region: "us-west-2"
+      acme:
+        email: your-email
+        server: "https://acme-v02.api.letsencrypt.org/directory"
+        solver:
+          route53:
+            hostedZoneID: "zone-id"
+            region: "us-west-2"
 kind: Secret
 metadata:
   name: tcs.tanzu.vmware.com

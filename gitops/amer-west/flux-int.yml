@@ -2,6 +2,7 @@
  kind: Space
  metadata:
    name: flux-int
+   namespace: default
  spec:
    template:
      spec:

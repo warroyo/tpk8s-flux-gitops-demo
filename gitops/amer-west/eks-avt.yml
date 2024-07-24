@@ -12,5 +12,5 @@ spec:
               operator: In
               values: ["warroyo"]
             - key: cloud
-              ooperator: In
+              operator: In
               values: ["true"]

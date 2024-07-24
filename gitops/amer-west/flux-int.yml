@@ -1,0 +1,15 @@
+ apiVersion: spaces.tanzu.vmware.com/v1alpha1
+ kind: Space
+ metadata:
+   name: flux-int
+ spec:
+   template:
+     spec:
+       profiles:
+       - name: spring-dev.tanzu.vmware.com
+       - name: networking.fluxint.tpk8s.aws.warroyo.com
+   availabilityTargets:
+   - name: warroyo-eks
+     replicas: 1
+   updateStrategy:
+     type: RollingUpdate

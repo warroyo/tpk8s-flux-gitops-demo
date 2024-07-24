@@ -1,0 +1,4 @@
+apiVersion: config.tanzu.vmware.com/v1
+configuration:
+  projectRoot:
+    uuid: 77aee83b-308f-4c8e-b9c4-3f7a6f19ba75

@@ -1,0 +1,179 @@
+apiVersion: packaging.carvel.dev/v1alpha1
+kind: PackageInstall
+metadata:
+  name: k8sgateway.tanzu.vmware.com
+  namespace: default
+spec:
+  defaultNamespace: unusable-namespace
+  packageRef:
+    refName: k8sgateway.tanzu.vmware.com
+    versionSelection:
+       constraints: '>0.0.0'
+  serviceAccountName: pkg-installs-sa
+---
+apiVersion: packaging.carvel.dev/v1alpha1
+kind: PackageInstall
+metadata:
+  name: crossplane.tanzu.vmware.com
+  namespace: default
+spec:
+  defaultNamespace: unusable-namespace
+  packageRef:
+    refName: crossplane.tanzu.vmware.com
+    versionSelection:
+      constraints: '>0.0.0'
+  serviceAccountName: pkg-installs-sa
+---
+apiVersion: packaging.carvel.dev/v1alpha1
+kind: PackageInstall
+metadata:
+  name: tcs.tanzu.vmware.com
+  namespace: default
+spec:
+  defaultNamespace: unusable-namespace
+  packageRef:
+    refName: tcs.tanzu.vmware.com
+    versionSelection:
+      constraints: '>0.0.0'
+  serviceAccountName: pkg-installs-sa
+  values:
+  - secretRef:
+      name: tcs.tanzu.vmware.com
+---
+apiVersion: v1
+stringData:
+  values.yml: |
+    clusterIngressCa:
+    acme:
+      email: your-email
+      server: "https://acme-v02.api.letsencrypt.org/directory"
+      solver:
+        route53:
+          hostedZoneID: "zone-id"
+          region: "us-west-2"
+kind: Secret
+metadata:
+  name: tcs.tanzu.vmware.com
+  namespace: default
+type: Opaque
+---
+apiVersion: packaging.carvel.dev/v1alpha1
+kind: PackageInstall
+metadata:
+  name: servicebinding.tanzu.vmware.com
+  namespace: default
+spec:
+  defaultNamespace: unusable-namespace
+  packageRef:
+    refName: servicebinding.tanzu.vmware.com
+    versionSelection:
+      constraints: '>0.0.0'
+  serviceAccountName: pkg-installs-sa
+---
+apiVersion: packaging.carvel.dev/v1alpha1
+kind: PackageInstall
+metadata:
+  name: observability.tanzu.vmware.com
+  namespace: default
+spec:
+  defaultNamespace: unusable-namespace
+  packageRef:
+    refName: observability.tanzu.vmware.com
+    versionSelection:
+      constraints: '>0.0.0'
+  serviceAccountName: pkg-installs-sa
+---
+apiVersion: packaging.carvel.dev/v1alpha1
+kind: PackageInstall
+metadata:
+  name: container-apps.tanzu.vmware.com
+  namespace: default
+spec:
+  defaultNamespace: unusable-namespace
+  packageRef:
+    refName: container-apps.tanzu.vmware.com
+    versionSelection:
+      constraints: '>0.0.0'
+  serviceAccountName: pkg-installs-sa
+---
+apiVersion: packaging.carvel.dev/v1alpha1
+kind: PackageInstall
+metadata:
+  annotations:
+    ext.packaging.carvel.dev/ytt-paths-from-secret-name.0: cert-man-sa-overlay
+  name: cert-manager.tanzu.vmware.com
+  namespace: default
+spec:
+  defaultNamespace: unusable-namespace
+  packageRef:
+    refName: cert-manager.tanzu.vmware.com
+    versionSelection:
+      constraints: '>0.0.0'
+  serviceAccountName: pkg-installs-sa
+---
+apiVersion: packaging.carvel.dev/v1alpha1
+kind: PackageInstall
+metadata:
+  name: mtls.tanzu.vmware.com
+  namespace: default
+spec:
+  defaultNamespace: unusable-namespace
+  packageRef:
+    refName: mtls.tanzu.vmware.com
+    versionSelection:
+      constraints: '>0.0.0'
+  serviceAccountName: pkg-installs-sa
+---
+apiVersion: packaging.carvel.dev/v1alpha1
+kind: PackageInstall
+metadata:
+  name: spring-cloud-gateway.tanzu.vmware.com
+  namespace: default
+spec:
+  defaultNamespace: unusable-namespace
+  packageRef:
+    refName: spring-cloud-gateway.tanzu.vmware.com
+    versionSelection:
+      constraints: '>0.0.0'
+  serviceAccountName: pkg-installs-sa
+---
+apiVersion: packaging.carvel.dev/v1alpha1
+kind: PackageInstall
+metadata:
+  name: tanzu-servicebinding.tanzu.vmware.com
+  namespace: default
+spec:
+  defaultNamespace: unusable-namespace
+  packageRef:
+    refName: tanzu-servicebinding.tanzu.vmware.com
+    versionSelection:
+      constraints: '>0.0.0'
+  serviceAccountName: pkg-installs-sa
+---
+apiVersion: packaging.carvel.dev/v1alpha1
+kind: PackageInstall
+metadata:
+  name: bitnami.services.tanzu.vmware.com
+  namespace: default
+spec:
+  defaultNamespace: unusable-namespace
+  packageRef:
+    refName: bitnami.services.tanzu.vmware.com
+    versionSelection:
+      constraints: '>0.0.0'
+  serviceAccountName: pkg-installs-sa
+---
+apiVersion: packaging.carvel.dev/v1alpha1
+kind: PackageInstall
+metadata:
+  annotations:
+    kapp.k14s.io/change-rule.tcs: upsert after upserting tcs
+  name: egress.tanzu.vmware.com
+  namespace: default
+spec:
+  defaultNamespace: unusable-namespace
+  packageRef:
+    refName: egress.tanzu.vmware.com
+    versionSelection:
+      constraints: '>1.0.0'
+  serviceAccountName: pkg-installs-sa

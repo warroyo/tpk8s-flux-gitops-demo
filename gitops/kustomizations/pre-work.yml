@@ -1,0 +1,14 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: pre-work
+  namespace: flux-tpk8s
+spec:
+  force: false
+  interval: 1m0s
+  path: ./gitops/pre
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: tpk8s-flux-demo
+    namespace: tanzu-continuousdelivery-resources

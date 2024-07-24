@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
 - kubeconfigs.yml
 - secret-import.yml
+- secret-exports.yml

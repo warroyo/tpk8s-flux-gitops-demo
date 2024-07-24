@@ -45,11 +45,11 @@ stringData:
   values.yml: |
     clusterIngressCa:
       acme:
-        email: your-email
+        email: william.arroyo@broadcom.com
         server: "https://acme-v02.api.letsencrypt.org/directory"
         solver:
           route53:
-            hostedZoneID: "zone-id"
+            hostedZoneID: "ZITNNUBJHM530"
             region: "us-west-2"
 kind: Secret
 metadata:

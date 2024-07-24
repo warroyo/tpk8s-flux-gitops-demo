@@ -8,6 +8,7 @@ spec:
   interval: 1m0s
   path: ./gitops/amer-west/spaces/flux-dev
   prune: true
+  targetNamespace: default
   dependsOn:
   - name: amer-west-project
   sourceRef:

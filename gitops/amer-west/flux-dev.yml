@@ -7,8 +7,7 @@
    template:
      spec:
        profiles:
-       - name: spring-dev.tanzu.vmware.com
-       - name: networking.fluxdev.tpk8s.aws.warroyo.com
+       - name: warroyo-apps
    availabilityTargets:
    - name: warroyo-eks
      replicas: 1
